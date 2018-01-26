@@ -352,6 +352,18 @@ public class Pixel
    double average = (getRed() + getGreen() + getBlue()) / 3.0;
    return average;
  }
+ 
+ public boolean isTransparent()
+ {
+	 boolean isTransparent = false;
+	 
+	 if(getAlpha() == 255 && getRed() == 0 && getGreen() == 0 && getBlue() == 0)
+	 {
+		 isTransparent = true;
+	 }
+	 
+	 return isTransparent;
+ }
   
   /**
    * Method to return a string with information about this pixel
@@ -367,3 +379,30 @@ public class Pixel
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

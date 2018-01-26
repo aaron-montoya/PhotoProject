@@ -173,6 +173,13 @@ public class Picture extends SimplePicture
       }
     }   
   }
+  
+  public void monkeyFilter(int startRow, int startCol)
+  {
+	  Pixel fromPixel = null;
+	  Pixel toPixel = null;
+	  Picture monkey = new Picture("monkeyman.png");
+  }
 
   /** Method to create a collage of several pictures */
   public void createCollage()
