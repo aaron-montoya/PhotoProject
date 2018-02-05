@@ -86,6 +86,26 @@ public class Picture extends SimplePicture
     
   }
   
+  public void wrapAround()
+  {
+	  Color holdPixel = null;
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  Pixel [][] pixels = this.getPixels2D();
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  rightPixel = pixels[row][(col + 200) % pixels[0].length];
+			  holdPixel = rightPixel.getColor();
+			  leftPixel.setColor(holdPixel);
+			  rightPixel.setColor(leftPixel.getColor());
+			  
+		  }
+	  }
+  }
+  
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -178,7 +198,27 @@ public class Picture extends SimplePicture
   {
 	  Pixel fromPixel = null;
 	  Pixel toPixel = null;
-	  Picture monkey = new Picture("monkeyman.png");
+	  Picture monkey = new Picture("monkeymanclear.png");
+	  Pixel [][] toPixels = this.getPixels2D();	   //The base layer of the picture.
+	  Pixel [][] fromPixels = monkey.getPixels2D(); //The layer we are adding to the picture
+	  
+	  int fromRow = 0;
+	  for(int toRow = startRow; toRow < toPixels.length && fromRow < fromPixels.length; toRow++)
+	  {
+		  int fromCol = 0;
+		  for (int toCol = startCol; toCol < toPixels[0].length && fromCol < fromPixels[0].length; toCol++)
+		  {
+			  fromPixel = fromPixels[fromRow][fromCol];
+			  toPixel = toPixels[toRow][toCol];
+			  if(!fromPixel.isTransparent())
+			  {
+				  toPixel.setColor(fromPixel.getColor());
+			  }
+			  fromCol++;
+		  }
+		  fromRow++;
+	  }
+	  
   }
 
   /** Method to create a collage of several pictures */

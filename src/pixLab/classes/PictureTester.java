@@ -18,6 +18,14 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testMonkey()
+  {
+	  Picture sample = new Picture("blueMotorcycle.jpg");
+	  sample.explore();
+	  sample.monkeyFilter(sample.getHeight()/2, sample.getWidth()/2);
+	  sample.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -52,6 +60,14 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testWrap()
+  {
+	  Picture sample = new Picture("blueMotorcycle.jpg");
+	  sample.explore();
+	  sample.wrapAround();
+	  sample.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -59,14 +75,14 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
+    //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
@@ -81,5 +97,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+    //testMonkey();
+	testWrap();
   }
 }
