@@ -68,6 +68,22 @@ public class PictureTester
 	  sample.explore();
   }
   
+  public static void testGlitch()
+  {
+	  Picture sample = new Picture("blueMotorcycle.jpg");
+	  sample.explore();
+	  sample.glitchArt();
+	  sample.explore();
+  }
+  
+  public static void testColorGlitch()
+  {
+	  Picture sample = new Picture("beach.jpg");
+	  sample.explore();
+	  sample.glitchColor();
+	  sample.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -98,6 +114,8 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
     //testMonkey();
-	testWrap();
+	//testWrap();
+	//testGlitch();
+	  testColorGlitch();
   }
 }
