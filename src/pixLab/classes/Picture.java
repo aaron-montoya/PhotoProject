@@ -169,7 +169,36 @@ public class Picture extends SimplePicture
 			  
 			 
 		  }
-	  }  
+	  }
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  Pixel currPixel = pixels[row][col];
+			  
+			  if(row > 10 && row < 70 && col > 10 && col < 70)
+			  {
+				  currPixel.setBlue((int)(Math.random()*255));
+				  currPixel.setGreen((int)(Math.random()*255));
+				  currPixel.setRed((int)(Math.random()*255));
+			  }
+			  
+			  if(row > 300 && row < 400 && col > 50 && col < 90)
+			  {
+				  currPixel.setBlue((int)(Math.random()*255));
+				  currPixel.setGreen((int)(Math.random()*255));
+				  currPixel.setRed((int)(Math.random()*255));
+			  }
+			  
+			  if(row > 200 && row < 250 && col > 400 && col < 600)
+			  {
+				  currPixel.setBlue((int)(Math.random()*255));
+				  currPixel.setGreen((int)(Math.random()*255));
+				  currPixel.setRed((int)(Math.random()*255));
+			  }
+		  }
+	  }
   }
   
   /** Method to set the blue to 0 */
