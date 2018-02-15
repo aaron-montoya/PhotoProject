@@ -115,7 +115,7 @@ public class PictureTester
     //testGetAverageForColumn(0);
     //testMonkey();
 	//testWrap();
-	//testGlitch();
-	  testColorGlitch();
+	testGlitch();
+	//testColorGlitch();
   }
 }

@@ -88,20 +88,22 @@ public class Picture extends SimplePicture
   
   public void wrapAround()
   {
-	  Color holdPixel = null;
-	  Pixel oldPixel = null;
-	  Pixel newPixel = null;
 	  Pixel [][] pixels = this.getPixels2D();
+	  int shiftAmount = (int) (.33 * pixels[0].length);
+	  int width = pixels[0].length;
+	  
 	  for(int row = 0; row < pixels.length; row++)
 	  {
+		  Color [] currentColors = new Color[pixels[0].length];
+		  
+		  for(int col = 0; col < pixels[row].length; col++)
+		  {
+			  currentColors[col] = pixels[row][col].getColor();
+		  }
+		  
 		  for(int col = 0; col < pixels[0].length; col++)
 		  {
-			  oldPixel = pixels[row][col];
-			  newPixel = pixels[row][(col + 50) % pixels[0].length];
-			  holdPixel = oldPixel.getColor();
-			  oldPixel.setColor(newPixel.getColor());
-			  newPixel.setColor(holdPixel);
-			  
+			  pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]);
 		  }
 	  }
   }
@@ -135,22 +137,39 @@ public class Picture extends SimplePicture
 	  int shiftAmount = (int) (.33 * pixels[0].length);
 	  int width = pixels[0].length;
 	  
-	  
-	  
 	  for(int row = 0; row < pixels.length; row++)
 	  {
 		  Color [] currentColors = new Color[pixels[0].length];
 		  
-		  for (int col = 0; col < pixels[row].length; col++)
+		  for(int col = 0; col < pixels[row].length; col++)
 		  {
 			  currentColors[col] = pixels[row][col].getColor();
 		  }
 		  
-		  for (int col = 0; col < pixels[0].length; col++)
+		  for(int col = 0; col < pixels[0].length; col++)
 		  {
 			  pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]);
 		  }
 	  }
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  Pixel currPixel = pixels[row][col];
+			  
+			  if(row > 50 && row < 300 && col > 50 && col < 300)
+			  {
+				  int blueColor = currPixel.getBlue();
+				  int redColor = currPixel.getRed();
+				  
+				   pixels[row+50][col+50].setBlue(blueColor);
+				   pixels[row+50][col+50].setRed(redColor);
+			  }
+			  
+			 
+		  }
+	  }  
   }
   
   /** Method to set the blue to 0 */
